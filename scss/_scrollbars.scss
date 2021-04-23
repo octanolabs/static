@@ -1,0 +1,20 @@
+// scroll bars 
+
+::-webkit-scrollbar {
+  width: 6px; /* for vertical scrollbars */
+  height: 6px; /* for horizontal scrollbars */
+}
+::-webkit-scrollbar-track {
+  background:var(--v-scrollTrack) !important;
+  z-index: 4 !important
+}
+::-webkit-scrollbar-thumb {
+  background: var(--v-primary-base) !important;
+}
+
+// firefox scrollbar z-index fix
+.ff-scrollbar-fix {
+  transform: translate3d(0, 0, 0);
+  scrollbar-color: var(--v-primary-base) #2e2e2e;
+  scrollbar-width: thin;
+}

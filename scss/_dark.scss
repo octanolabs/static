@@ -1,0 +1,53 @@
+// dark mode specific overrides & fixes.
+
+// nav drawer
+.theme--dark.v-navigation-drawer {
+  background-color: #121212 !important;
+}
+
+// content edit
+// dark mode text color fix
+.theme--dark>div.v-card__text>div.nuxt-content-container>.nuxt-content-editor {
+  color: #fff !important;
+}
+
+// table of content
+.theme--dark.static-toc {
+  border-left: 6px solid rgba(255,255,255,0.12);
+}
+
+.theme--dark>div.bt-1 {
+  border-top: 1px solid rgba(255,255,255,0.12)
+}
+
+// header links
+div.theme--dark>div.v-card__text>div.nuxt-content-container>div.nuxt-content>h1>a>span.header-link,
+div.theme--dark>div.v-card__text>div.nuxt-content-container>div.nuxt-content>h2>a>span.header-link,
+div.theme--dark>div.v-card__text>div.nuxt-content-container>div.nuxt-content>h3>a>span.header-link,
+div.theme--dark>div.v-card__text>div.nuxt-content-container>div.nuxt-content>h4>a>span.header-link,
+div.theme--dark>div.v-card__text>div.nuxt-content-container>div.nuxt-content>h5>a>span.header-link,
+div.theme--dark>div.v-card__text>div.nuxt-content-container>div.nuxt-content>h6>a>span.header-link {
+  color: rgba(255,255,255,0.12);
+}
+
+div.theme--dark>div.v-card__text>div.nuxt-content-container>div.nuxt-content>h1>a>span.header-link:hover,
+div.theme--dark>div.v-card__text>div.nuxt-content-container>div.nuxt-content>h2>a>span.header-link:hover,
+div.theme--dark>div.v-card__text>div.nuxt-content-container>div.nuxt-content>h3>a>span.header-link:hover,
+div.theme--dark>div.v-card__text>div.nuxt-content-container>div.nuxt-content>h4>a>span.header-link:hover,
+div.theme--dark>div.v-card__text>div.nuxt-content-container>div.nuxt-content>h5>a>span.header-link:hover,
+div.theme--dark>div.v-card__text>div.nuxt-content-container>div.nuxt-content>h6>a>span.header-link:hover {
+  color: var(--v-primary-base);
+}
+
+// tables 
+div.theme--dark>div.v-card__text>div.nuxt-content-container>div.nuxt-content>table>tbody>tr>td,
+div.theme--dark>div.v-card__text>div.nuxt-content-container>div.nuxt-content>table>thead>tr>th {
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 6px;
+}
+
+div.theme--dark>div.v-card__text>div.nuxt-content-container>div.nuxt-content>table>tbody>tr:nth-child(odd) {
+  background: #1E1E1E;
+}
+
+
