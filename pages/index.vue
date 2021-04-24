@@ -7,7 +7,9 @@
         </v-avatar>
       </div>
       <h1 class="v-heading text-h3 text-sm-h3 mb-4">{{ $t('home.title') }}</h1>
-      <p class="mx-auto" style="width: 420px;max-width: 85%">{{ $t('home.desc') }}</p>
+      <p class="mx-auto" style="width: 420px; max-width: 85%">
+        {{ $t('home.desc') }}
+      </p>
       <v-row no-gutters align="center" class="text-center pt-4">
         <span class="mx-auto">
           <v-btn
@@ -23,7 +25,7 @@
           </v-btn>
           <v-btn
             color="#212121"
-            style="color:#fff;"
+            style="color: #fff"
             :href="params.github"
             target="_blank"
             x-large
@@ -54,7 +56,7 @@ export default {
     },
     locale() {
       return this.$i18n.locale
-    }
-  }
+    },
+  },
 }
 </script>

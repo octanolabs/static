@@ -1,6 +1,6 @@
 export const state = () => ({
   navigation: true,
-  toc: true
+  toc: true,
 })
 
 export const mutations = {
@@ -9,20 +9,20 @@ export const mutations = {
   },
   SET_TOC(state, enabled) {
     state.toc = enabled
-  }
+  },
 }
 
 export const actions = {
-  toggleNavigation({commit, state}) {
+  toggleNavigation({ commit, state }) {
     commit('SET_NAVIGATION', !state.navigation)
   },
-  toggleToc({commit, state}) {
+  toggleToc({ commit, state }) {
     commit('SET_TOC', !state.toc)
   },
-  set_navigation({commit}, enabled) {
+  set_navigation({ commit }, enabled) {
     commit('SET_NAVIGATION', enabled)
   },
-  set_toc({commit}, enabled) {
+  set_toc({ commit }, enabled) {
     commit('SET_TOC', enabled)
-  }
+  },
 }

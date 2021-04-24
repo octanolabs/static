@@ -2,33 +2,22 @@
   <v-app dark>
     <v-app-bar fixed app :flat="isMobile" clipped-right>
       <v-app-bar-nav-icon @click.stop="toggleNavDrawer()"></v-app-bar-nav-icon>
-      <v-btn
-        icon
-        nuxt
-        to="/"
-      >
+      <v-btn icon nuxt to="/">
         <v-icon>mdi-home</v-icon>
       </v-btn>
       <v-spacer />
       <template v-if="isMobile">
-        <search-mobile /> 
+        <search-mobile />
       </template>
       <template v-else>
         <search />
       </template>
-      <v-btn
-        icon
-        @click.stop="$vuetify.theme.dark = !$vuetify.theme.dark"
-      >
+      <v-btn icon @click.stop="$vuetify.theme.dark = !$vuetify.theme.dark">
         <v-icon>mdi-theme-light-dark</v-icon>
       </v-btn>
       <v-menu offset-y>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn
-            icon
-            v-bind="attrs"
-            v-on="on"
-          >
+        <template #activator="{ on, attrs }">
+          <v-btn icon v-bind="attrs" v-on="on">
             <v-icon>mdi-translate</v-icon>
           </v-btn>
         </template>
@@ -46,15 +35,11 @@
           </v-list-item>
         </v-list>
       </v-menu>
-      <v-btn
-        icon
-        :href="params.github"
-        target="_blank"
-      >
+      <v-btn icon :href="params.github" target="_blank">
         <v-icon>mdi-github</v-icon>
       </v-btn>
     </v-app-bar>
-    <resizable-drawer side="left" id="navigation">
+    <resizable-drawer id="navigation" side="left">
       <v-toolbar>
         <v-list dense class="pa-0">
           <v-list-item>
@@ -75,20 +60,20 @@
           v-for="(item, i) in items"
           :key="i"
           link
-          :to="{path: item.path}"
+          :to="{ path: item.path }"
         >
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
           <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item>
-        
+
         <v-list-group
           v-for="(group, index) in groups"
           :key="index"
           :prepend-icon="group.icon"
         >
-          <template v-slot:activator>
+          <template #activator>
             <v-list-item-title>{{ group.title }}</v-list-item-title>
           </template>
           <template v-if="group.items">
@@ -96,7 +81,7 @@
               v-for="(item, i) in group.items"
               :key="i"
               link
-              :to="{path: item.path}"
+              :to="{ path: item.path }"
             >
               <v-list-item-icon>
                 <v-icon>{{ item.icon }}</v-icon>
@@ -106,8 +91,7 @@
           </template>
         </v-list-group>
       </v-list>
-      <template v-slot:append>
-      </template>
+      <template #append> </template>
     </resizable-drawer>
     <v-main>
       <v-container class="pb-12">
@@ -119,15 +103,19 @@
       app
       fixed
       height="22px"
-      style="background-color: var(--v-primary-base);font-size:12px;font-weight: 600;"
+      style="
+        background-color: var(--v-primary-base);
+        font-size: 12px;
+        font-weight: 600;
+      "
       class="px-2"
     >
       <v-spacer />
-      <span style="color:#fff">
+      <span style="color: #fff">
         handcrafted by <v-icon color="#fff" dense>mdi-ninja</v-icon> using
         <a
           href="https://github.com/octanolabs/static"
-          style="color:#fff; text-decoration:none;"
+          style="color: #fff; text-decoration: none"
           target="_blank"
         >
           octano static
@@ -136,17 +124,17 @@
       <v-spacer />
     </v-footer>
     <v-btn
-      v-scroll="onScroll"
       v-show="fab"
+      v-scroll="onScroll"
       fab
       dark
       fixed
       bottom
       right
       color="secondary"
-      @click="toTop"
       class="mb-5"
-      style="z-index:5"
+      style="z-index: 5"
+      @click="toTop"
     >
       <v-icon>mdi-chevron-up</v-icon>
     </v-btn>
@@ -159,21 +147,19 @@ import Search from '~/components/app/Search'
 import SearchMobile from '~/components/app/mobile/Search'
 
 export default {
-  name: 'defaultLayout',
+  name: 'DefaultLayout',
   components: {
     ResizableDrawer,
     Search,
-    SearchMobile
-  },
-  mounted() {
-    this.onResize()
-
-    window.addEventListener('resize', this.onResize, { passive: true })
+    SearchMobile,
   },
   data() {
     return {
-      fab: false
+      fab: false,
     }
+  },
+  async fetch() {
+    await this.$store.dispatch('content/fetch')
   },
   computed: {
     darkmode: {
@@ -182,7 +168,7 @@ export default {
       },
       set() {
         this.$vuetify.theme.dark = !this.$vuetify.theme.dark
-      }
+      },
     },
     theme() {
       return this.$vuetify.theme.dark ? 'dark' : 'light'
@@ -191,7 +177,7 @@ export default {
       return this.$store.state.params
     },
     avlLocales() {
-      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
+      return this.$i18n.locales.filter((i) => i.code !== this.$i18n.locale)
     },
     locale() {
       return this.$i18n.locale
@@ -207,28 +193,30 @@ export default {
     },
     isMobile() {
       return this.$store.state.mobile
-    }
+    },
   },
-  async fetch() {
-    await this.$store.dispatch('content/fetch')
+  mounted() {
+    this.onResize()
+
+    window.addEventListener('resize', this.onResize, { passive: true })
   },
   methods: {
     toggleNavDrawer() {
       this.$store.dispatch('drawers/toggleNavigation')
     },
-    onScroll (e) {
+    onScroll(e) {
       if (typeof window === 'undefined') return
       const top = window.pageYOffset || e.target.scrollTop || 0
       this.fab = top > 20
     },
-    toTop () {
+    toTop() {
       this.$vuetify.goTo('header', {
         duration: 300,
         offset: 0,
-        easing: 'easeInOutCubic'
+        easing: 'easeInOutCubic',
       })
     },
-    onResize () {
+    onResize() {
       this.$store.dispatch('set_mobile', window.innerWidth < 600)
     },
   },

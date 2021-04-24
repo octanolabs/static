@@ -1,4 +1,4 @@
-/*import { mount } from '@vue/test-utils'
+/* import { mount } from '@vue/test-utils'
 import Home from '~/components/home.vue'
 
 describe('Logo', () => {

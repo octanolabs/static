@@ -12,7 +12,7 @@ export const mutations = {
 }
 
 export const actions = {
-  set_mobile({commit, state}, isMobile) {
+  set_mobile({ commit, state }, isMobile) {
     if (isMobile !== state.mobile) {
       commit('SET_MOBILE', isMobile)
     }

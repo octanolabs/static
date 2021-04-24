@@ -1,6 +1,6 @@
 import config from './params/config.json'
 
-let msgs = {}
+const msgs = {}
 for (const l of config.i18n.locales) {
   msgs[l.code] = require('./i18n/' + l.code + '.json')
 }
@@ -19,7 +19,7 @@ export default {
     titleTemplate: '%s',
     title: locale.title || 'Octano Static',
     htmlAttrs: {
-      lang: config.i18n.default
+      lang: config.i18n.default,
     },
     meta: [
       { charset: 'utf-8' },
@@ -27,23 +27,17 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: locale.home.desc || 'we are all dev'
-      }
+        content: locale.home.desc || 'we are all dev',
+      },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: config.favicon }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: config.favicon }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    '~/scss/main.scss'
-  ],
+  css: ['~/scss/main.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    { src: '~/plugins/i18n.js' },
-  ],
+  plugins: [{ src: '~/plugins/i18n.js' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -71,23 +65,32 @@ export default {
   content: {
     markdown: {
       prism: {
-        theme: 'prism-themes/themes/prism-material-dark.css'
+        theme: 'prism-themes/themes/prism-material-dark.css',
       },
       // markdown heading auto links
       remarkAutolinkHeadings: {
         content: {
           type: 'element',
           tagName: 'span',
-          properties: {className: ['v-icon', 'mdi', 'mdi-link-box-variant-outline', 'mr-1', 'mb-1', 'header-link']}
-        }
-      }
-    }
+          properties: {
+            className: [
+              'v-icon',
+              'mdi',
+              'mdi-link-box-variant-outline',
+              'mr-1',
+              'mb-1',
+              'header-link',
+            ],
+          },
+        },
+      },
+    },
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/scss/variables.scss'],
-    theme: config.theme
+    theme: config.theme,
   },
 
   // i18n module configuration (https://i18n.nuxtjs.org/basic-usage)
@@ -99,27 +102,26 @@ export default {
       cookieKey: config.title + '_i18n_redirected',
       fallbackLocale: config.i18n.default || 'en',
       alwaysRedirect: true,
-      onlyOnRoot: true
+      onlyOnRoot: true,
     },
     defaultLocale: config.i18n.default || 'en',
     vueI18n: {
       fallbackLocale: config.i18n.default || 'en',
-      messages: msgs
-    }
+      messages: msgs,
+    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-  },
+  build: {},
 
   // hooks
   hooks: {
     'content:file:beforeParse': (file) => {
       if (file.extension !== '.md') return
       let dir = config.github.split('/')
-      dir = dir[dir.length-1]
+      dir = dir[dir.length - 1]
       file.data = file.data.replace(/STATIC_GITHUB/g, config.github + '.git')
       file.data = file.data.replace(/STATIC_DIR/g, dir)
-    }
+    },
   },
 }

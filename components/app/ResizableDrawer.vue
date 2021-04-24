@@ -1,6 +1,6 @@
 <template>
   <v-navigation-drawer
-    :ref="'drawer-'+id"
+    :ref="'drawer-' + id"
     v-model="show"
     app
     :left="side === 'left'"
@@ -21,19 +21,26 @@ export default {
       type: String,
       default() {
         return 'right'
-      }
+      },
     },
     id: {
       type: String,
       default() {
         return 'navigation'
-      }
+      },
     },
     dark: {
       type: Boolean,
       default() {
         return true
-      }
+      },
+    },
+  },
+  data: () => {
+    return {
+      shown: false,
+      width: 256,
+      borderSize: 2,
     }
   },
   computed: {
@@ -43,15 +50,8 @@ export default {
       },
       set(val) {
         this.$store.dispatch('drawers/set_' + this.id, val)
-      }
-    }
-  },
-  data: () => {
-    return {
-      shown: false,
-      width: 256,
-      borderSize: 2,
-    }
+      },
+    },
   },
   mounted() {
     this.setBorderWidth()
