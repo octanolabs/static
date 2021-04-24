@@ -91,6 +91,7 @@ export default {
   vuetify: {
     customVariables: ['~/scss/variables.scss'],
     theme: config.theme,
+    treeShake: false,
   },
 
   // i18n module configuration (https://i18n.nuxtjs.org/basic-usage)
