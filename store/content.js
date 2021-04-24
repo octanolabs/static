@@ -1,3 +1,5 @@
+import consola from 'consola'
+
 export const state = () => ({
   groups: null,
   items: null,
@@ -61,7 +63,7 @@ export const actions = {
       }
       commit('SET_CONTENT', { groups, items })
     } catch (e) {
-      console.log(e)
+      consola.log(e)
     }
   },
   async select({ commit }, payload) {
