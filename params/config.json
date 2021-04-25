@@ -1,10 +1,10 @@
 {
-  "favicon": "/favicon.png",
+  "favicon": "favicon.png",
   "logo": {
-    "dark": "/octano-dark.svg",
-    "light": "/octano-light.svg"
+    "dark": "octano-dark.svg",
+    "light": "octano-light.svg"
   },
-  "url": "https://octano.dev",
+  "url": "https://octanolabs.github.io/static",
   "github": "https://github.com/octanolabs/static",
   "theme": {
     "dark": true,
