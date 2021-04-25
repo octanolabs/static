@@ -159,7 +159,12 @@ export default {
     }
   },
   async fetch() {
+    await this.$store.dispatch('set_mobile', window.innerWidth < 600)
     await this.$store.dispatch('content/fetch')
+    if (!this.$store.state.mobile) {
+      this.$store.dispatch('drawers/set_navigation', true)
+      this.$store.dispatch('drawers/set_toc', true)
+    }
   },
   computed: {
     darkmode: {

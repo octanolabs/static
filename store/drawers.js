@@ -1,6 +1,6 @@
 export const state = () => ({
-  navigation: true,
-  toc: true,
+  navigation: false,
+  toc: false,
 })
 
 export const mutations = {
