@@ -18,7 +18,9 @@ export default {
   target: 'static',
 
   // for github pages, remove if deploying to non-subdir
-  base: '/' + repoName + '/',
+  router: {
+    base: '/' + repoName + '/',
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
