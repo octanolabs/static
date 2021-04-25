@@ -11,10 +11,10 @@ All settings can be configured in `params/config.json`.
 
 ```json[params/config.json]
 {
-  "favicon": "/favicon.png",
+  "favicon": "favicon.png",
   "logo": {
-    "dark": "/octano-dark.svg",
-    "light": "/octano-light.svg"
+    "dark": "octano-dark.svg",
+    "light": "octano-light.svg"
   },
   "url": "https://octano.dev",
   "github": "https://github.com/octanolabs/static",
