@@ -7,9 +7,6 @@ for (const l of config.i18n.locales) {
 
 const locale = require('./i18n/' + config.i18n.default + '.json')
 
-let repoName = config.github.split('/')
-repoName = repoName[repoName.length - 1]
-
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -17,10 +14,8 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
-  // for github pages, remove if deploying to non-subdir
-  router: {
-    base: '/' + repoName + '/',
-  },
+  // router config
+  router: config.router,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {

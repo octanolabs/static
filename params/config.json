@@ -52,5 +52,8 @@
         "name": "中文"
       }
     ]
+  },
+  "router": {
+    "base": "/static/"
   }
 }
