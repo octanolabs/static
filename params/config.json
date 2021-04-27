@@ -16,7 +16,9 @@
         "error": "#FF5252",
         "info": "#2196F3",
         "success": "#4CAF50",
-        "warning": "#FFC107"
+        "warning": "#FFC107",
+        "staticborders": "#2E2E2E",
+        "zebrastripes": "#1E1E1E"
       },
       "light": {
         "primary": "#00ccff",
@@ -25,11 +27,13 @@
         "error": "#FF5252",
         "info": "#2196F3",
         "success": "#4CAF50",
-        "warning": "#FFC107"
+        "warning": "#FFC107",
+        "staticborders": "#E1E1E1",
+        "zebrastripes": "#F1F1F1"
       }
     },
-    "options": { 
-      "customProperties": true 
+    "options": {
+      "customProperties": true
     }
   },
   "i18n": {

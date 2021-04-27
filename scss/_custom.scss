@@ -112,7 +112,7 @@ pre[class*="language-"] {
   bottom: 0;
 }
 
-// table of contents 
+// table of contents
 
 .static-toc-active {
   color: var(--v-primary-base) !important;
@@ -137,4 +137,46 @@ table {
 
 .mw-300 {
   max-width: 300px !important;
+}
+
+// borders & strips
+
+// table of content
+.static-toc {
+  border-left: 6px solid var(--v-staticborders-base) !important;
+}
+
+.bt-1 {
+  border-top: 1px solid var(--v-staticborders-base) !important;
+}
+
+// header links
+.nuxt-content>h1>a>span.header-link,
+.nuxt-content>h2>a>span.header-link,
+.nuxt-content>h3>a>span.header-link,
+.nuxt-content>h4>a>span.header-link,
+.nuxt-content>h5>a>span.header-link,
+.nuxt-content>h6>a>span.header-link {
+  color: var(--v-staticborders-base) !important;
+}
+
+.nuxt-content>h1>a>span.header-link:hover,
+.nuxt-content>h2>a>span.header-link:hover,
+.nuxt-content>h3>a>span.header-link:hover,
+.nuxt-content>h4>a>span.header-link:hover,
+.nuxt-content>h5>a>span.header-link:hover,
+.nuxt-content>h6>a>span.header-link:hover {
+  color: var(--v-primary-base) !important;
+}
+
+// tables
+.nuxt-content>table>tbody>tr>td,
+.nuxt-content>table>thead>tr>th {
+  border: 1px solid var(--v-staticborders-base) !important;
+  padding: 6px !important;
+}
+
+// div.theme--dark>div.v-card__text>div.nuxt-content-container>div.nuxt-content>table>tbody>tr:nth-child(odd) {
+.nuxt-content>table>tbody>tr:nth-child(odd) {
+  background:var(--v-zebrastripes-base) !important; // 1e1e1e
 }
