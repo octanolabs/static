@@ -32,7 +32,7 @@
             <v-spacer />
             <v-btn
               icon
-              :href="github + '/edit/master/content' + article.path"
+              :href="github + '/edit/master/content' + article.path + '.md'"
               target="_blank"
             >
               <v-icon>mdi-file-document-edit-outline</v-icon>
