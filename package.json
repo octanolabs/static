@@ -18,7 +18,7 @@
     "consola": "^2.15.3",
     "core-js": "^3.11.2",
     "nuxt": "^2.15.3",
-    "nuxt-i18n": "^6.26.0",
+    "nuxt-i18n": "^6.27.0",
     "prism-themes": "^1.6.0"
   },
   "devDependencies": {
